@@ -1,0 +1,4 @@
+*.DS_Store
+/html/bower_components/*
+/html/.sass-cache/*
+/html/stylesheets/*
