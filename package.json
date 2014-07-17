@@ -8,7 +8,7 @@
   "contributors": [
     "Aiham Hammami <aiham@aiham.net>"
   ],
-  "devDependencies": {
+  "dependencies": {
     "request": "~2.37.0"
   }
 }
