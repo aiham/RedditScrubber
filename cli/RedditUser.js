@@ -31,6 +31,9 @@ RedditUser.prototype = {
         auth: {
           username: this.app.id,
           password: this.app.secret
+        },
+        headers: {
+          'User-Agent': this.app.user_agent
         }
       },
       (function (user) {
@@ -92,6 +95,7 @@ RedditUser.prototype = {
         method: 'GET',
         url: 'https://oauth.reddit.com' + path,
         headers: {
+          'User-Agent': this.app.user_agent,
           Authorization: 'bearer ' + this.access_token
         }
       };
