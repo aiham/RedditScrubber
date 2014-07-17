@@ -1,0 +1,8 @@
+{
+  "type": "all",
+  "debug": false,
+  "username": "your_reddit_username",
+  "password": "your_reddit_password",
+  "client_id": "your_reddit_app_id",
+  "client_secret": "your_reddit_app_secret"
+}
