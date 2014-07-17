@@ -30,7 +30,7 @@ Coming soon
 ### config.json
 
 - `type` - Must be `posts`, `comments` or `all`
-- `debug` - Set to true if you wish to watch the script running each step
+- `debug` - Set to `true` if you wish to watch the script running each step
 - `username` - Your Reddit.com username
 - `password` - Your Reddit.com password
 - `client_id` - Your Reddit.com app client ID
