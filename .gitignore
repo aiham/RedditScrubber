@@ -2,4 +2,4 @@
 /html/bower_components/*
 /html/.sass-cache/*
 /html/stylesheets/*
-/node_modules/*
+node_modules
