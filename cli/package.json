@@ -1,5 +1,5 @@
 {
-  "name": "RedditScrubberCli",
+  "name": "reddit-scrubber-cli",
   "version": "1.0.0",
   "description": "Removes comments and posts from your Reddit user page",
   "main": "main.js",
