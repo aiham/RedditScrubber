@@ -1,4 +1,5 @@
 *.DS_Store
+.*.swp
 /html/bower_components/*
 /html/.sass-cache/*
 /html/stylesheets/*
