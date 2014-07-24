@@ -1,0 +1,16 @@
+{
+  "db": {
+    "username": "your db username",
+    "password": "your db password",
+    "database": "reddit_scrubber"
+  },
+  "reddit": {
+    "app_id": "your reddit.com app id",
+    "app_secret": "your reddit.com app secret",
+    "redirect_uri": "http://path/to/redirect/uri",
+    "user_agent": "RedditScrubber/1.0.0 by aihamh"
+  },
+  "session": {
+    "secret": "your session secret"
+  }
+}
