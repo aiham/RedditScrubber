@@ -1,8 +1,9 @@
 {
   "type": "all",
-  "debug": false,
-  "username": "your_reddit_username",
-  "password": "your_reddit_password",
-  "client_id": "your_reddit_app_id",
-  "client_secret": "your_reddit_app_secret"
+  "username": "your reddit.com username",
+  "password": "your reddit.com password",
+  "app_id": "your reddit.com app id",
+  "app_secret": "your reddit.com app secret",
+  "user_agent": "RedditScrubberCli/1.0.0 by aihamh",
+  "request_buffer": 1000
 }

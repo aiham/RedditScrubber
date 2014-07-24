@@ -1,0 +1,26 @@
+{
+  "name": "RedditScrubberCli",
+  "version": "1.0.0",
+  "description": "Removes comments and posts from your Reddit user page",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aiham/RedditScrubber"
+  },
+  "keywords": [
+    "reddit",
+    "scrubber"
+  ],
+  "author": "Aiham Hammami <aiham@aiham.net> (http://www.aiham.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aiham/RedditScrubber/issues"
+  },
+  "homepage": "https://github.com/aiham/RedditScrubber",
+  "dependencies": {
+    "reddit-oauth": "^1.0.5"
+  }
+}
