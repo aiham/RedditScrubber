@@ -4,6 +4,6 @@
   "password": "your reddit.com password",
   "app_id": "your reddit.com app id",
   "app_secret": "your reddit.com app secret",
-  "user_agent": "RedditScrubberCli/1.0.0 by aihamh",
+  "user_agent": "reddit-scrubber-cli/1.0.0 by aihamh",
   "request_buffer": 1000
 }
