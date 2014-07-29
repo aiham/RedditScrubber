@@ -1,6 +1,74 @@
 extends layout
 
 block content
-  div(id='container')
-  script(src='/javascripts/jquery.min.js')
-  script(src='/javascripts/main.js')
+  .row
+    .columns
+      .panel
+        h4 Welcome!
+        p Use Reddit Scrubber to delete all your Reddit posts and comments
+
+  .row.mainSection#rowLoading
+    .columns.text-center
+      .panel
+        p
+          span.elipses ...
+
+  .row.mainSection.hide#rowAbout
+    .columns.text-center
+      .panel
+        p By Aiham Hammami
+
+  .row.mainSection.hide#rowSignIn
+    .columns.text-center
+      .panel
+        p You must give permission to access your Reddit posts and comments
+        a.button.round(href='/auth') Sign into Reddit.com
+
+  .row.mainSection.hide#rowProfile
+    .columns
+      .panel
+        h3
+          a#redditName(href='#') Username
+        .row
+          .small-10.medium-6.small-centered.columns
+            .panel
+              .row
+                .small-10.small-centered.columns
+                  ul.small-block-grid-2
+                    li
+                      strong Posts Deleted:
+                    li.text-right#postsDeleted 0
+                    li
+                      strong Comments Deleted:
+                    li.text-right#commentsDeleted 0
+        .row.innerSection.hide#rowIdle
+          .small-10.medium-6.small-centered.columns
+            .panel.text-center
+              p Currently not scheduled to delete anything
+              p Select an option below
+        .row.innerSection.hide#rowOptions
+          .small-12.medium-8.small-centered.columns
+            ul.button-group.round.even-3
+              li
+                a.button(href='#') Posts
+              li
+                a.button(href='#') Comments
+              li
+                a.button(href='#') All
+        .row.innerSection.hide#rowWaiting
+          .small-10.medium-6.small-centered.columns
+            .panel.text-center
+              p Scheduled to delete all <strong>Posts</strong> and <strong>Comments</strong>
+              p Waiting for <strong class="time">10</strong> minute<span class="plural">s</span><span class="elipses">...</span>
+              p Once your place in the queue is reached, the deletion process will begin
+              a.button.round(href='#') Cancel
+              p
+                small (You can sign out without affecting the deletion)
+        .row.innerSection.hide#rowDeleting
+          .small-10.medium-6.small-centered.columns
+            .panel.text-center
+              p Currently deleting all <strong>Posts</strong> and <strong>Comments</strong>
+              p Deleting for <strong class="time">5</strong> minute<span class="plural">s</span><span class="elipses">...</span>
+              a.button.round(href='#') Cancel
+              p
+                small (You can sign out without affecting the deletion)

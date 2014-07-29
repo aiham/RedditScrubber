@@ -1,6 +1,7 @@
 *.DS_Store
 .*.swp
-/html/bower_components/*
-/html/.sass-cache/*
-/html/stylesheets/*
+/web/bower_components/*
+/web/.sass-cache/*
+/web/public/stylesheets/*
+/web/public/javascripts/vendor/*
 node_modules

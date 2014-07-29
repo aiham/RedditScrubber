@@ -1,7 +1,36 @@
 doctype html
-html
+html.no-js(lang='en')
   head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
+    script(src='/javascripts/vendor/modernizr.js')
   body
+
+    .fixed
+      nav.top-bar(data-topbar)
+        ul.title-area
+          li.name
+            h1
+              a#navTitle(href='/') Reddit Scrubber
+        section.top-bar-section
+          ul.right
+            li#navAbout
+              a(href='#') About
+            li#navSignIn
+              a(href='/auth') Sign In
+            li.hide#navSignOut
+              a(href='/auth/out') Sign Out
+
     block content
+
+    footer
+      .row.text-right
+        em
+          a(href='http://www.aiham.net/') Aiham Hammami 
+          | &copy; 2014
+
+    script(src='/javascripts/vendor/jquery.min.js')
+    script(src='/javascripts/vendor/foundation.min.js')
+    script(src='/javascripts/app.js')
