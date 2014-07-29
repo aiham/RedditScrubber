@@ -118,7 +118,11 @@ Process.prototype = {
               wipe_start: db_date(new Date())
             }).success(function () {
 
-              callback(task, user);
+              task.setProcess(that.model).success(function () {
+
+                callback(task, user);
+
+              });
 
             });
           } else {
