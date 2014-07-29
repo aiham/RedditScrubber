@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
-var db_date = require('../db_date');
+var db_date = require('../helpers/db_date');
 
 /* GET authentication. */
 router.get('/', function (req, res) {

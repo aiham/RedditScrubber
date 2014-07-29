@@ -9,7 +9,7 @@ var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var debug = require('debug')('server');
 var db = require('./models');
-var reddit = require('./reddit');
+var reddit = require('./helpers/reddit');
 var config = require('./config');
 
 var routes = require('./routes/index');
