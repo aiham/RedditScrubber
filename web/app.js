@@ -82,10 +82,10 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 db.sequelize
-  .sync({ force: true })
-  .complete(function(err) {
+  .sync({force: true})
+  .complete(function (err) {
     if (err) {
-      throw err
+      throw err;
     } else {
       var server = app.listen(app.get('port'), function() {
         debug('Express server listening on port ' + server.address().port);
