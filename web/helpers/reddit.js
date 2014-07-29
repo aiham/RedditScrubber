@@ -1,6 +1,6 @@
-var db = require('./models');
+var db = require('../models');
 var RedditApi = require('reddit-oauth');
-var config = require('./config');
+var config = require('../config');
 var lodash = require('lodash');
 
 module.exports = function (req, res, next) {
