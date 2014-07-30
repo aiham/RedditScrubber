@@ -2,8 +2,8 @@ var fs        = require('fs')
   , path      = require('path')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
-  , config    = require('../config')
-  , sequelize = new Sequelize(config.db.database, config.db.username, config.db.password)
+  , config    = require('../config/db').development
+  , sequelize = new Sequelize(config.database, config.username, config.password)
   , db        = {};
 
 fs.readdirSync(__dirname)

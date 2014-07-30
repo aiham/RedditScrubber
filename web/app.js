@@ -10,7 +10,7 @@ var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var debug = require('debug')('server');
 var db = require('./models');
 var reddit = require('./helpers/reddit');
-var config = require('./config');
+var sessionConfig = require('./config/session');
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // use sequelize as session store
 app.use(session({
-  secret: config.session.secret,
+  secret: sessionConfig.secret,
   store: new SequelizeStore({
     db: db.sequelize
   })
@@ -82,7 +82,6 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 db.sequelize
-  .sync({force: true})
   .complete(function (err) {
     if (err) {
       throw err;

@@ -1,11 +1,11 @@
 var db = require('../models');
 var RedditApi = require('reddit-oauth');
-var config = require('../config');
+var config = require('../config/reddit');
 var lodash = require('lodash');
 
 module.exports = function (req, res, next) {
 
-  req.reddit = new RedditApi(lodash.extend(config.reddit, {request_buffer: 1000}));
+  req.reddit = new RedditApi(lodash.extend(config, {request_buffer: 1000}));
 
   var redditUserId = req.session.redditUserId;
   if (!redditUserId) {
