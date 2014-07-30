@@ -39,7 +39,11 @@ Process.prototype = {
 
   randomName: function () {
 
-    return Math.random().toString(36).substr(2, 10);
+    var name = (Math.random() + 1).toString(36).substr(2, 10);
+    if (typeof name !== 'string' || name.length < 1) {
+      return this.randomName();
+    }
+    return name;
 
   },
 
