@@ -21,7 +21,8 @@ router.get('/', function (req, res) {
 
       if (err) throw err;
 
-      var url = reddit.oAuthUrl(state, ['identity', 'history', 'edit']);
+      var scope = 'identity,history,edit'.split(',');
+      var url = reddit.oAuthUrl(state, scope);
       res.redirect(url);
 
     });
