@@ -82,6 +82,7 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 db.sequelize
+  .authenticate()
   .complete(function (err) {
     if (err) {
       throw err;
