@@ -11,6 +11,7 @@ var Process = function () {
   this.user = null;
   this.task = null;
   this.reddit = new RedditApi(lodash.extend(reddit_config, {request_buffer: 1000}));
+  this.ping = null;
 
 };
 
@@ -23,12 +24,15 @@ Process.prototype = {
     var that = this;
     this.uniqueName(function (name) {
 
+      var ping = new Date();
       db.Process.create({
-        name: name
+        name: name,
+        ping: db_date(ping)
       }).success(function (model) {
 
         that.name = name;
         that.model = model;
+        that.ping = ping;
         that.processTasks();
 
       });
@@ -63,26 +67,49 @@ Process.prototype = {
 
   },
 
+  refreshPing: function (callback) {
+
+    var now = new Date();
+
+    // If last ping was older than 30 seconds
+    if (this.ping && now.getTime() - this.ping.getTime() > 30000) {
+      var that = this;
+      this.model.updateAttributes({
+        ping: db_date(now)
+      }).success(function () {
+        that.ping = now;
+        callback();
+      });
+    } else {
+      callback();
+    }
+
+  },
+
   processTasks: function () {
 
     var that = this;
-    this.completeTask(function () {
+    this.refreshPing(function () {
 
-      that.nextTask(function (task, user) {
+      that.completeTask(function () {
 
-        if (!task) {
-          that.scheduleCheck();
-        } else if (!user) {
-          that.processTasks();
-        } else {
-          that.task = task;
-          that.user = user;
-          that.deleteThings();
-        }
+        that.nextTask(function (task, user) {
 
-      });
+          if (!task) {
+            that.scheduleCheck();
+          } else if (!user) {
+            that.processTasks();
+          } else {
+            that.task = task;
+            that.user = user;
+            that.deleteThings();
+          }
 
-    });
+        }); // nextTask
+
+      }); // completeTask
+
+    }); // refreshPing
 
   },
 
@@ -202,13 +229,17 @@ Process.prototype = {
       console.log('Deleted ' + thing.id + ' for user ' + that.user.username);
       that.deletedThing(thing.type, function () {
 
-        if (things.length > 0) {
-          that.deleteThing(things, next);
-        } else if (next) {
-          that.deleteThings();
-        } else {
-          that.processTasks();
-        }
+        that.refreshPing(function () {
+
+          if (things.length > 0) {
+            that.deleteThing(things, next);
+          } else if (next) {
+            that.deleteThings();
+          } else {
+            that.processTasks();
+          }
+
+        });
 
       });
 

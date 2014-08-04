@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
 
   var Process = sequelize.define('Process', {
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    ping: DataTypes.DATE
   }, {
     associate: function(models) {
 
