@@ -81,27 +81,25 @@ app.use(function(err, req, res, next) {
 
 app.set('port', process.env.PORT || 3000);
 
-db.sequelize
-  .authenticate()
-  .complete(function (err) {
-    if (err) {
-      throw err;
-    } else {
-      var server = app.listen(app.get('port'), function() {
-        debug('Express server listening on port ' + server.address().port);
-      });
+db.sequelize.authenticate().complete(function (err) {
+  if (err) {
+    throw err;
+  } else {
+    var server = app.listen(app.get('port'), function() {
+      debug('Express server listening on port ' + server.address().port);
+    });
 
-      if (process.getgid() === 0) {
-        process.setgid('nobody');
-        process.setuid('nobody');
-      }
-
-      process.on('SIGTERM', function () {
-        if (server === undefined) return;
-        server.close(function () {
-          // Disconnect from cluster master
-          process.disconnect && process.disconnect();
-        });
-      });
+    if (process.getgid() === 0) {
+      process.setgid('nobody');
+      process.setuid('nobody');
     }
-  });
+
+    process.on('SIGTERM', function () {
+      if (server === undefined) return;
+      server.close(function () {
+        // Disconnect from cluster master
+        process.disconnect && process.disconnect();
+      });
+    });
+  }
+});
