@@ -1,6 +1,6 @@
 var db = require('./models');
 var RedditApi = require('reddit-oauth');
-var config = require('./config');
+var reddit_config = require('./config/reddit');
 var lodash = require('lodash');
 var db_date = require('./helpers/db_date');
 
@@ -10,7 +10,7 @@ var Process = function () {
   this.model = null;
   this.user = null;
   this.task = null;
-  this.reddit = new RedditApi(lodash.extend(config.reddit, {request_buffer: 1000}));
+  this.reddit = new RedditApi(lodash.extend(reddit_config, {request_buffer: 1000}));
 
 };
 
