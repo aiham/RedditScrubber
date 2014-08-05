@@ -81,7 +81,7 @@ Process.prototype = {
         callback();
       });
     } else {
-      callback();
+      process.nextTick(callback); // Ensure refreshPing is async
     }
 
   },
@@ -127,7 +127,7 @@ Process.prototype = {
 
       });
     } else {
-      callback();
+      process.nextTick(callback); // Ensure completeTask is async
     }
 
   },
