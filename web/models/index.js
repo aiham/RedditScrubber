@@ -3,7 +3,7 @@ var fs        = require('fs')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
   , config    = require('../config/db').development
-  , sequelize = new Sequelize(config.database, config.username, config.password)
+  , sequelize = new Sequelize(config.database, config.username, config.password, {logging: false})
   , db        = {};
 
 fs.readdirSync(__dirname)
