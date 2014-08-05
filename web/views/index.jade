@@ -58,7 +58,9 @@ block content
         .row.innerSection.hide#rowWaiting
           .small-10.medium-6.small-centered.columns
             .panel.text-center
-              p Scheduled to delete all <strong>Posts</strong> and <strong>Comments</strong>
+              p
+                | Scheduled to delete all
+                span.types <strong>Posts</strong> and <strong>Comments</strong>
               p Waiting for <strong class="time">10</strong> minute<span class="plural">s</span><span class="elipses">...</span>
               p Once your place in the queue is reached, the deletion process will begin
               a.button.round(href='#') Cancel
@@ -67,7 +69,9 @@ block content
         .row.innerSection.hide#rowDeleting
           .small-10.medium-6.small-centered.columns
             .panel.text-center
-              p Currently deleting all <strong>Posts</strong> and <strong>Comments</strong>
+              p
+                | Currently deleting all
+                span.types <strong>Posts</strong> and <strong>Comments</strong>
               p Deleting for <strong class="time">5</strong> minute<span class="plural">s</span><span class="elipses">...</span>
               a.button.round(href='#') Cancel
               p

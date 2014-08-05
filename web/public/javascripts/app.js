@@ -203,6 +203,19 @@ $(document).foundation();
       $('#rowWaiting .time').text(time);
       $('#rowWaiting .plural')[time === 1 ? 'hide' : 'show']();
 
+      var typeText = '';
+      if (type === 'all') {
+        typeText = '<strong>Posts</strong> and <strong>Comments</strong>';
+      } else if (type === 'posts') {
+        typeText = '<strong>Posts</strong>';
+      } else if (type === 'comments') {
+        typeText = '<strong>Comments</strong>';
+      } else {
+        //TODO
+        console.log('Invalid type: ' + type);
+      }
+      $('#rowWaiting .types').html(typeText);
+
     },
 
     showDeleting: function (type, time) {
@@ -211,6 +224,19 @@ $(document).foundation();
       this.toggleTagDisplay('#rowDeleting', true);
       $('#rowDeleting .time').text(time);
       $('#rowDeleting .plural')[time === 1 ? 'hide' : 'show']();
+
+      var typeText = '';
+      if (type === 'all') {
+        typeText = '<strong>Posts</strong> and <strong>Comments</strong>';
+      } else if (type === 'posts') {
+        typeText = '<strong>Posts</strong>';
+      } else if (type === 'comments') {
+        typeText = '<strong>Comments</strong>';
+      } else {
+        //TODO
+        console.log('Invalid type: ' + type);
+      }
+      $('#rowDeleting .types').html(typeText);
 
     },
 
