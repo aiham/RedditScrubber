@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "migrate": "./scripts/migrate.sh"
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "grunt && npm run migrate && node app.js",
+    "migrate": "sequelize --config config/db.json -m"
   },
   "dependencies": {
     "async": "~0.9.0",
