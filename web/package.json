@@ -26,7 +26,7 @@
     "morgan": "~1.0.0",
     "mysql": "^2.4.1",
     "node-sass": "~0.9.3",
-    "reddit-oauth": "~1.0.5",
+    "reddit-oauth": "^1.0.6",
     "sequelize": "^1.7.9",
     "static-favicon": "~1.0.0"
   }
