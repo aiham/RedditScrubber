@@ -39,6 +39,11 @@ reddit.passAuth(config.username, config.password, function (success) {
 
       var deleteThing = function () {
 
+        if (!ids.length) {
+          console.log('Done.');
+          return;
+        }
+
         var id = ids.shift();
         console.log('Deleting ' + id + '...');
         reddit.post('/api/del', {id: id}, function (error, response, body) {
@@ -47,12 +52,10 @@ reddit.passAuth(config.username, config.password, function (success) {
           if (response.statusCode !== 200) throw 'Invalid response code: ' + response.statusCode;
           console.log('Deleted:  ' + id);
 
-          if (ids.length > 0) {
-            deleteThing();
-          } else if (next) {
+          if (next) {
             processThings();
           } else {
-            console.log('Done.');
+            deleteThing();
           }
 
         }); // reddit.post()
