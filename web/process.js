@@ -102,7 +102,11 @@ Process.prototype = {
           } else {
             that.task = task;
             that.user = user;
-            that.deleteThings();
+            try {
+              that.deleteThings();
+            } catch (e) {
+              console.error('Caught error: ', e);
+            }
           }
 
         }); // nextTask
