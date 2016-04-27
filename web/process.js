@@ -172,10 +172,10 @@ Process.prototype = {
   scheduleCheck: function () {
 
     var that = this;
-    console.log('Sleeping...');
+    // console.log('Sleeping...');
     setTimeout(function () {
 
-      console.log('Awake.');
+    //   console.log('Awake.');
       that.processTasks();
 
     }, 10000);
@@ -226,7 +226,7 @@ Process.prototype = {
       if (error) throw error;
       if (response.statusCode !== 200) throw 'Invalid response code: ' + response.statusCode;
 
-      console.log('Deleted ' + thing.id + ' for user ' + that.user.username);
+    //   console.log('Deleted ' + thing.id + ' for user ' + that.user.username);
       that.deletedThing(thing.type, function () {
 
         that.refreshPing(function () {
