@@ -200,14 +200,18 @@ Process.prototype = {
     this.reddit.getListing(path, null, function (error, response, body, next) {
 
       if (error) throw error;
+      if (!response) throw 'Invalid response: ' + response;
       if (response.statusCode !== 200) throw 'Invalid response code: ' + response.statusCode;
 
-      var things = response.jsonData.data.children.map(function (thing) {
+      var things;
+      if (response.jsonData && response.jsonData.data && response.jsonData.data.children) {
+          things = response.jsonData.data.children.map(function (thing) {
 
-        return {id: thing.data.name, type: thing.kind === 't1' ? 'comment' : 'post'};
+            return {id: thing.data.name, type: thing.kind === 't1' ? 'comment' : 'post'};
 
-      });
-      if (things.length > 0) {
+          });
+      }
+      if (things && things.length > 0) {
         that.deleteThing(things, next);
       } else {
         that.processTasks();
@@ -224,6 +228,7 @@ Process.prototype = {
     this.reddit.post('/api/del', {id: thing.id}, function (error, response, body) {
 
       if (error) throw error;
+      if (!response) throw 'Invalid response: ' + response;
       if (response.statusCode !== 200) throw 'Invalid response code: ' + response.statusCode;
 
     //   console.log('Deleted ' + thing.id + ' for user ' + that.user.username);
