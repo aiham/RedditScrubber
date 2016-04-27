@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
   var state, reddit = req.reddit;
 
   if (req.query.error) {
-    console.log('Error: Failed to get oAuth code');
+    console.error('Error: Failed to get oAuth code');
     res.redirect('/');
     return;
   }
@@ -32,7 +32,7 @@ router.get('/', function (req, res) {
   state = req.session.redditState;
 
   if (!state) {
-    console.log('Error: Returned from reddit API but state not set');
+    console.error('Error: Returned from reddit API but state not set');
     res.redirect('/');
     return;
   }
@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
       if (err) throw err;
 
       if (!success) {
-        console.log('Error: Failed to get oAuth tokens');
+        console.error('Error: Failed to get oAuth tokens');
         res.redirect('/');
         return;
       }
@@ -53,7 +53,7 @@ router.get('/', function (req, res) {
       reddit.get('/api/v1/me', null, function (error, response, body) {
 
         if (error || response.statusCode !== 200) {
-          console.log('Error: Failed to get reddit user info');
+          console.error('Error: Failed to get reddit user info');
           res.redirect('/');
           return;
         }
@@ -67,7 +67,7 @@ router.get('/', function (req, res) {
         }, function (user) {
 
           if (!user) {
-            console.log('Error: Failed to save authed reddit user');
+            console.error('Error: Failed to save authed reddit user');
             res.redirect('/');
             return;
           }

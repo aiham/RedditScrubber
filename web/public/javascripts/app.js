@@ -38,7 +38,7 @@ $(document).foundation();
         }
 
         if (!data.success) {
-          console.log(data.error);
+          console.error(data.error);
           fail('internal');
           return;
         }
@@ -212,7 +212,7 @@ $(document).foundation();
         typeText = '<strong>Comments</strong>';
       } else {
         //TODO
-        console.log('Invalid type: ' + type);
+        console.error('Invalid type: ' + type);
       }
       $('#rowWaiting .types').html(typeText);
 
@@ -234,7 +234,7 @@ $(document).foundation();
         typeText = '<strong>Comments</strong>';
       } else {
         //TODO
-        console.log('Invalid type: ' + type);
+        console.error('Invalid type: ' + type);
       }
       $('#rowDeleting .types').html(typeText);
 
@@ -295,7 +295,7 @@ $(document).foundation();
             this.view.showDeleting(task.type, this.minutesSince(task.wipe_start));
           } else {
             // TODO
-            console.log('Invalid task status: ' + task.status);
+            console.error('Invalid task status: ' + task.status);
           }
         } else {
           this.view.showIdle();
@@ -325,7 +325,7 @@ $(document).foundation();
           that.updateView(false);
         } else {
           // TODO
-          console.log('Need to handle error: ' + error);
+          console.error('Need to handle error: ' + error);
         }
 
       });
@@ -383,7 +383,7 @@ $(document).foundation();
       }, function (error) {
 
         // TODO
-        console.log('Need to handle error: ' + error);
+        console.error('Need to handle error: ' + error);
 
       });
 
@@ -409,7 +409,7 @@ $(document).foundation();
           that.updateView(false);
         } else {
           // TODO
-          console.log('Need to handle error: ' + error);
+          console.error('Need to handle error: ' + error);
         }
 
       });
