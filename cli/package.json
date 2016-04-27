@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/aiham/RedditScrubber",
   "dependencies": {
-    "reddit-oauth": "^1.0.5"
+    "reddit-oauth": "^1.1.0"
   }
 }
