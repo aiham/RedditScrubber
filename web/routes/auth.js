@@ -52,7 +52,7 @@ router.get('/', function (req, res) {
 
       reddit.get('/api/v1/me', null, function (error, response, body) {
 
-        if (error || response.statusCode !== 200) {
+        if (error || !response || response.statusCode !== 200) {
           console.error('Error: Failed to get reddit user info');
           res.redirect('/');
           return;
