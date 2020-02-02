@@ -27,7 +27,7 @@
     "mysql": "^2.4.1",
     "node-sass": "~0.9.3",
     "reddit-oauth": "^1.1.0",
-    "sequelize": "^1.7.9",
+    "sequelize": "^5.21.3",
     "static-favicon": "~1.0.0"
   }
 }
